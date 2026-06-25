@@ -7,14 +7,15 @@ interface CarDemandChartProps {
 }
 
 const CHART_COLORS = [
-  "#3641F5",
-  "#7592FF",
-  // "#465FFF",
-  "#9CB9FF",
-  "#DDE9FF",
-  "#6366F1",
-  "#818CF8",
-  "#A5B4FC",
+  "#fb2c36",
+  "#ff6b6b",
+  "#ff8f8f",
+  "#ffb3b3",
+  "#ffd7d7",
+  "#ffe3e3",
+  "#fff0f0",
+  "#fff5f5",
+  "#fffafafa",
 ];
 
 export default function CarDemandChart({ carDemand }: CarDemandChartProps) {
@@ -82,7 +83,7 @@ export default function CarDemandChart({ carDemand }: CarDemandChartProps) {
   return (
     <div
       id="chartTwo"
-      className="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]"
+      className="shadow-theme-md rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]"
     >
       <div className="px-6 py-5 border-b border-gray-100 dark:border-gray-800">
         <h3 className="text-base font-medium text-gray-800 dark:text-white/90">

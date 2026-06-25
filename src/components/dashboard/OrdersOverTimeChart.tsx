@@ -21,7 +21,7 @@ export default function OrdersOverTimeChart({
     legend: {
       show: false,
     },
-    colors: ["#465FFF"],
+    colors: ["#fb2c36"],
     chart: {
       fontFamily: "Outfit, sans-serif",
       height: 310,
@@ -104,7 +104,7 @@ export default function OrdersOverTimeChart({
   ];
 
   return (
-    <div className="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
+    <div className="shadow-theme-md rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
       <div className="flex flex-col gap-4 px-6 py-5 border-b border-gray-100 dark:border-gray-800 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h3 className="text-base font-medium text-gray-800 dark:text-white/90">
