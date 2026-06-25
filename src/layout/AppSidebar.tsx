@@ -132,7 +132,7 @@ const AppSidebar: React.FC = () => {
 
       >
 
-        <Link to="/dashboard">
+        <Link to="/dashboard" className="flex items-center justify-center bg-white w-full rounded-lg">
 
           {isExpanded || isHovered || isMobileOpen ? (
 
@@ -140,23 +140,9 @@ const AppSidebar: React.FC = () => {
 
               <img
 
-                className="dark:hidden"
+                className=""
 
-                src="/images/logo/logo.svg"
-
-                alt="Logo"
-
-                width={150}
-
-                height={40}
-
-              />
-
-              <img
-
-                className="hidden dark:block"
-
-                src="/images/logo/logo-dark.svg"
+                src="/images/logo/logo.webp"
 
                 alt="Logo"
 
@@ -166,19 +152,20 @@ const AppSidebar: React.FC = () => {
 
               />
 
-            </>
+
+          </>
 
           ) : (
 
             <img
 
-              src="/images/logo/logo-icon.svg"
+              src="/images/logo/logo.webp"
 
               alt="Logo"
 
-              width={32}
+              width={82}
 
-              height={32}
+              height={52}
 
             />
 

@@ -20,7 +20,7 @@ interface StatCardProps {
 function StatCard({ label, value, icon }: StatCardProps) {
   return (
     <div className="shadow-theme-md rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] md:p-6">
-      <div className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-xl dark:bg-gray-800">
+      <div className="flex items-center justify-center w-12 h-12 bg-blue-300/50 shadow-theme-md shadow-blue-500/20 rounded-xl dark:bg-gray-800">
         {icon}
       </div>
       <div className="mt-5">

@@ -9,7 +9,7 @@ interface CarDemandChartProps {
 const CHART_COLORS = [
   "#3641F5",
   "#7592FF",
-  "#465FFF",
+  // "#465FFF",
   "#9CB9FF",
   "#DDE9FF",
   "#6366F1",
@@ -18,11 +18,12 @@ const CHART_COLORS = [
 ];
 
 export default function CarDemandChart({ carDemand }: CarDemandChartProps) {
-  const labels = carDemand.map(
+  const filteredData = carDemand.filter((item) => Number(item.percentage) > 0);
+  const labels = filteredData.map(
     (item) => `${item.car_name} ${Number(item.percentage)}%`
   );
-  const series = carDemand.map((item) => Number(item.percentage));
-
+  const series = filteredData.map((item) => Number(item.percentage));
+   console.log(series);
   const options: ApexOptions = {
     chart: {
       fontFamily: "Outfit, sans-serif",
@@ -42,7 +43,7 @@ export default function CarDemandChart({ carDemand }: CarDemandChartProps) {
     plotOptions: {
       pie: {
         donut: {
-          size: "65%",
+          size: "70%",
           labels: {
             show: true,
             name: {
