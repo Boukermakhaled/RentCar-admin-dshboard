@@ -31,6 +31,7 @@ import { MdOutlineCalendarToday } from "react-icons/md";
 import { RiCarLine } from "react-icons/ri";
 import { HiOutlinePhotograph } from "react-icons/hi";
 import { MdClose } from "react-icons/md";
+import { GiHorseHead, GiGearHammer } from "react-icons/gi";
 
 interface CarFormModalProps {
   isOpen: boolean;
@@ -479,7 +480,7 @@ export default function CarFormModal({
                   ))}
                 </select>
               </FormStatField>
-              <FormStatField icon={<IoMdSpeedometer />} label="Horsepower *">
+              <FormStatField icon={<GiHorseHead />} label="Horsepower *">
                 <Input
                   id="horsepower"
                   type="number"
@@ -488,7 +489,7 @@ export default function CarFormModal({
                   className="!h-8 !rounded-md !px-2 !py-0 !shadow-none"
                 />
               </FormStatField>
-              <FormStatField icon={<TbManualGearbox />} label="Torque *">
+              <FormStatField icon={<GiGearHammer />} label="Torque *">
                 <Input
                   id="torque"
                   type="number"

@@ -7,7 +7,7 @@ import { fetchCarById } from "../../services/cars";
 import type { Car } from "../../types/cars";
 import { formatPrice, getApiErrorMessage, getCarImageList, getCarImageUrl } from "../../utils/cars";
 import { IoMdSpeedometer } from "react-icons/io";
-import { GiGearStick } from "react-icons/gi";
+import { GiGearHammer, GiGearStick, GiHorseHead } from "react-icons/gi";
 import { PiEngineBold, PiGasPumpBold } from "react-icons/pi";
 import { TbManualGearbox } from "react-icons/tb";
 import { MdOutlineCalendarToday } from "react-icons/md";
@@ -153,8 +153,8 @@ export default function CarDetailsModal({
               <StatPill icon={<MdOutlineCalendarToday />} label="Year" value={car.year} />
               <StatPill icon={<PiGasPumpBold />} label="Fuel" value={car.fuel} />
               <StatPill icon={<GiGearStick />} label="Gearbox" value={car.gearbox} />
-              <StatPill icon={<IoMdSpeedometer />} label="Horsepower" value={`${car.horsepower} hp`} />
-              <StatPill icon={<TbManualGearbox />} label="Torque" value={`${car.torque} Nm`} />
+              <StatPill icon={<GiHorseHead />} label="Horsepower" value={`${car.horsepower} hp`} />
+              <StatPill icon={<GiGearHammer />} label="Torque" value={`${car.torque} Nm`} />
               <StatPill icon={<PiEngineBold />} label="Engine" value={car.engine ?? "—"} />
             </div>
 
