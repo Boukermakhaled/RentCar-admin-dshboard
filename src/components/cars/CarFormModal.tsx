@@ -23,10 +23,8 @@ import {
   GEARBOX_OPTIONS,
   type CarFormValues,
 } from "../../types/cars";
-import { IoMdSpeedometer } from "react-icons/io";
 import { GiGearStick } from "react-icons/gi";
 import { PiEngineBold, PiGasPumpBold } from "react-icons/pi";
-import { TbManualGearbox } from "react-icons/tb";
 import { MdOutlineCalendarToday } from "react-icons/md";
 import { RiCarLine } from "react-icons/ri";
 import { HiOutlinePhotograph } from "react-icons/hi";

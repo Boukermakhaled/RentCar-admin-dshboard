@@ -2,12 +2,6 @@ import { Link, useLocation, useNavigate } from "react-router";
 
 import {
 
-  BoxIconLine,
-
-  GridIcon,
-
-  ListIcon,
-
   PlugInIcon,
 
 } from "../icons";

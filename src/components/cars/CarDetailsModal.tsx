@@ -1,15 +1,12 @@
 import { useEffect, useState } from "react";
 import { Modal } from "../ui/modal";
-import Badge from "../ui/badge/Badge";
 import Button from "../ui/button/Button";
 import { useToast } from "../../context/ToastContext";
 import { fetchCarById } from "../../services/cars";
 import type { Car } from "../../types/cars";
 import { formatPrice, getApiErrorMessage, getCarImageList, getCarImageUrl } from "../../utils/cars";
-import { IoMdSpeedometer } from "react-icons/io";
 import { GiGearHammer, GiGearStick, GiHorseHead } from "react-icons/gi";
 import { PiEngineBold, PiGasPumpBold } from "react-icons/pi";
-import { TbManualGearbox } from "react-icons/tb";
 import { MdOutlineCalendarToday } from "react-icons/md";
 import { RiCarLine } from "react-icons/ri";
 
