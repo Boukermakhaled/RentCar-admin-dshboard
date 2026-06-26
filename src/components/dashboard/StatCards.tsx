@@ -1,12 +1,9 @@
-import {
-  BoxIconLine,
-  CalenderIcon,
-  DollarLineIcon,
-  GroupIcon,
-} from "../../icons";
 import type { DashboardStats } from "../../types/stats";
 import { formatRevenue } from "../../utils/stats";
-
+import { IoCarSportOutline } from "react-icons/io5";
+import { MdCarRental } from "react-icons/md";
+import { MdPendingActions } from "react-icons/md";
+import { FaRegMoneyBill1 } from "react-icons/fa6";
 interface StatCardsProps {
   stats: DashboardStats;
 }
@@ -39,26 +36,30 @@ export default function StatCards({ stats }: StatCardsProps) {
       label: "Total Cars",
       value: String(stats.total_cars),
       icon: (
-        <BoxIconLine className="text-gray-800 size-6 dark:text-white/90" />
+        <IoCarSportOutline className="text-gray-800 size-6 dark:text-white/90" />
+
       ),
     },
     {
       label: "Rented Cars",
       value: String(stats.rented_cars),
-      icon: <GroupIcon className="text-gray-800 size-6 dark:text-white/90" />,
+      icon: <MdCarRental className="text-gray-800 size-6 dark:text-white/90" />
+      ,
     },
     {
       label: "Pending Orders",
       value: String(stats.pending_orders),
       icon: (
-        <CalenderIcon className="text-gray-800 size-6 dark:text-white/90" />
+        <MdPendingActions className="text-gray-800 size-6 dark:text-white/90" />
+
       ),
     },
     {
       label: "Monthly Revenue",
       value: formatRevenue(stats.monthly_revenue),
       icon: (
-        <DollarLineIcon className="text-gray-800 size-6 dark:text-white/90" />
+        <FaRegMoneyBill1 className="text-gray-800 size-6 dark:text-white/90" />
+
       ),
     },
   ];

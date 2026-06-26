@@ -11,6 +11,9 @@ import {
   PlugInIcon,
 
 } from "../icons";
+import { MdEventNote, MdOutlineEventNote  } from "react-icons/md";
+import { IoCarSportOutline, IoCarSportSharp  } from "react-icons/io5";
+import { GoHome, GoHomeFill } from "react-icons/go";
 
 import { useSidebar } from "../context/SidebarContext";
 
@@ -22,7 +25,8 @@ type NavItem = {
 
   name: string;
 
-  icon: React.ReactNode;
+  activeIcon: React.ReactNode;
+  inactiveIcon: React.ReactNode;
 
   path: string;
 
@@ -34,8 +38,8 @@ const navItems: NavItem[] = [
 
   {
 
-    icon: <GridIcon />,
-
+    activeIcon: <GoHomeFill />,
+    inactiveIcon: <GoHome />,
     name: "Dashboard",
 
     path: "/dashboard",
@@ -44,7 +48,8 @@ const navItems: NavItem[] = [
 
   {
 
-    icon: <BoxIconLine />,
+    activeIcon: <IoCarSportSharp />,
+    inactiveIcon: <IoCarSportOutline />,
 
     name: "Cars",
 
@@ -54,8 +59,9 @@ const navItems: NavItem[] = [
 
   {
 
-    icon: <ListIcon />,
 
+    activeIcon: <MdEventNote /> ,
+    inactiveIcon: <MdOutlineEventNote />,
     name: "Orders",
 
     path: "/dashboard/orders",
@@ -216,8 +222,7 @@ const AppSidebar: React.FC = () => {
                     }`}
 
                   >
-
-                    {nav.icon}
+               {isActive(nav.path) ? nav.activeIcon : nav.inactiveIcon}
 
                   </span>
 
