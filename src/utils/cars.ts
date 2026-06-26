@@ -4,7 +4,30 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 export function getCarImageUrl(path: string | null | undefined): string {
   if (!path) return "";
-  return `${API_URL}${path}`;
+  if (
+    path.startsWith("http://") ||
+    path.startsWith("https://") ||
+    path.startsWith("blob:") ||
+    path.startsWith("data:")
+  ) {
+    return path;
+  }
+  const base = (API_URL ?? "").replace(/\/$/, "");
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  return `${base}${normalized}`;
+}
+
+export function getCarImageList(car: {
+  image?: string | null;
+  images?: string[] | null;
+}): string[] {
+  if (car.images?.length) {
+    return car.images.filter(Boolean);
+  }
+  if (car.image) {
+    return [car.image];
+  }
+  return [];
 }
 
 export function formatPrice(value: number | string): string {
@@ -17,6 +40,33 @@ export function formatPrice(value: number | string): string {
       maximumFractionDigits: 2,
     }) + " DZD"
   );
+}
+
+export async function fetchImagesAsFiles(paths: string[]): Promise<File[]> {
+  const files: File[] = [];
+
+  for (const path of paths) {
+    const url = getCarImageUrl(path);
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Failed to load image: ${path}`);
+    }
+    const blob = await response.blob();
+    const filename = path.split("/").pop() || "image.webp";
+    files.push(new File([blob], filename, { type: blob.type || "image/webp" }));
+  }
+
+  return files;
+}
+
+export function carImagesChanged(
+  initial: string[],
+  current: string[],
+  newCount: number,
+): boolean {
+  if (newCount > 0) return true;
+  if (initial.length !== current.length) return true;
+  return initial.some((path, i) => path !== current[i]);
 }
 
 export function carToFormValues(car: Car): CarFormValues {

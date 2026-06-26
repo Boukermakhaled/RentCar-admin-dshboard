@@ -5,7 +5,7 @@ import Button from "../ui/button/Button";
 import { useToast } from "../../context/ToastContext";
 import { fetchCarById } from "../../services/cars";
 import type { Car } from "../../types/cars";
-import { formatPrice, getApiErrorMessage, getCarImageUrl } from "../../utils/cars";
+import { formatPrice, getApiErrorMessage, getCarImageList, getCarImageUrl } from "../../utils/cars";
 import { IoMdSpeedometer } from "react-icons/io";
 import { GiGearStick } from "react-icons/gi";
 import { PiEngineBold, PiGasPumpBold } from "react-icons/pi";
@@ -68,12 +68,7 @@ export default function CarDetailsModal({
     loadCar();
   }, [isOpen, carId, onClose, showToast]);
 
-  const images =
-    car?.images && car.images.length > 0
-      ? car.images
-      : car?.image
-        ? [car.image]
-        : [];
+  const images = car ? getCarImageList(car) : [];
 
   return (
     <Modal
@@ -89,13 +84,13 @@ export default function CarDetailsModal({
         <div className="flex flex-col overflow-y-auto max-h-[90vh]">
 
           {/* ── Image gallery ── */}
-          <div className="relative w-full aspect-video bg-gray-100 dark:bg-gray-900 overflow-hidden">
+          <div className="relative w-full shrink-0 aspect-video min-h-[180px] bg-gray-100 dark:bg-gray-900 overflow-hidden">
             {images.length > 0 ? (
               <>
                 <img
                   src={getCarImageUrl(images[activeImage])}
                   alt={`${car.brand} ${car.model}`}
-                  className="w-full h-full object-cover transition-all duration-300"
+                  className="absolute inset-0 w-full h-full object-cover transition-all duration-300"
                 />
                 {/* car_type badge */}
                 {car.car_type && (
