@@ -24,7 +24,6 @@ export default function CarDemandChart({ carDemand }: CarDemandChartProps) {
     (item) => `${item.car_name} ${Number(item.percentage)}%`
   );
   const series = filteredData.map((item) => Number(item.percentage));
-   console.log(series);
   const options: ApexOptions = {
     chart: {
       fontFamily: "Outfit, sans-serif",

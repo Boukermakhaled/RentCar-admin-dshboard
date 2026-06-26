@@ -8,6 +8,7 @@ import {
 } from "../ui/table";
 import type { CarListItem } from "../../types/cars";
 import { formatPrice, getCarImageUrl } from "../../utils/cars";
+import { MdInfoOutline, MdModeEdit, MdDeleteOutline } from "react-icons/md";
 
 interface CarsTableProps {
   cars: CarListItem[];
@@ -26,7 +27,7 @@ export default function CarsTable({
   onDelete,
 }: CarsTableProps) {
   return (
-    <div className="overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-white/[0.05] dark:bg-white/[0.03]">
+    <div className="shadow-theme-md overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-white/[0.05] dark:bg-white/[0.03]">
       <div className="max-w-full overflow-x-auto">
         <Table>
           <TableHeader className="border-b border-gray-100 dark:border-white/[0.05]">
@@ -58,14 +59,14 @@ export default function CarsTable({
               cars.map((car) => (
                 <TableRow key={car.id}>
                   <TableCell className="px-5 py-4 sm:px-6 text-start">
-                    <div className="h-10 w-10 overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800">
+                    <div className="h-12 w-12 overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800">
                       {car.image ? (
                         <img
                           src={getCarImageUrl(car.image)}
                           alt={`${car.brand} ${car.model}`}
                           className="h-full w-full object-cover"
-                          width={40}
-                          height={40}
+                          width={50}
+                          height={50}
                         />
                       ) : (
                         <div className="flex h-full w-full items-center justify-center text-xs text-gray-400">
@@ -101,21 +102,22 @@ export default function CarsTable({
                         className={actionButtonClass}
                         onClick={() => onDetails(car.id)}
                       >
-                        Details
+                        <MdInfoOutline className="w-5 h-5 text-black hover:scale-110 transition-all duration-300" />
                       </button>
                       <button
                         type="button"
                         className={actionButtonClass}
                         onClick={() => onEdit(car.id)}
                       >
-                        Edit
+                        <MdModeEdit className="w-5 h-5 text-green-700 hover:scale-110 transition-all duration-300" />
+
                       </button>
                       <button
                         type="button"
                         className="text-sm font-medium text-error-500 hover:text-error-600 dark:text-error-400 dark:hover:text-error-300"
                         onClick={() => onDelete(car.id)}
                       >
-                        Delete
+                        <MdDeleteOutline className="w-5 h-5 hover:scale-110 transition-all duration-300" />
                       </button>
                     </div>
                   </TableCell>
