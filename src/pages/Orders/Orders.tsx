@@ -118,7 +118,7 @@ export default function Orders() {
           </p>
         </div>
 
-        <div className="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] md:p-6">
+        <div className="shadow-theme-lg rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] md:p-6">
           <OrdersFilters
             search={search}
             onSearchChange={setSearch}

@@ -11,6 +11,7 @@ import type {
   OrderPaymentStatus,
   OrderStatus,
 } from "../../types/orders";
+import { MdInfoOutline, MdModeEdit, MdDeleteOutline } from "react-icons/md";
 import { formatDate, capitalizeStatus } from "../../utils/orders";
 
 interface OrdersTableProps {
@@ -132,21 +133,21 @@ export default function OrdersTable({
                         className={actionButtonClass}
                         onClick={() => onDetails(order.id)}
                       >
-                        Details
+                        <MdInfoOutline className="w-5 h-5 text-black hover:scale-110 transition-all duration-300" />
                       </button>
                       <button
                         type="button"
                         className={actionButtonClass}
                         onClick={() => onEdit(order.id)}
                       >
-                        Edit
+                        <MdModeEdit className="w-5 h-5 text-green-700 hover:scale-110 transition-all duration-300"/>
                       </button>
                       <button
                         type="button"
                         className="text-sm font-medium text-error-500 hover:text-error-600 dark:text-error-400 dark:hover:text-error-300"
                         onClick={() => onDelete(order.id)}
                       >
-                        Delete
+                        <MdDeleteOutline className="w-5 h-5 hover:scale-110 transition-all duration-300"/>
                       </button>
                     </div>
                   </TableCell>
